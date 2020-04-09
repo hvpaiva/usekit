@@ -1,84 +1,57 @@
 {
-  "name": "@usemobile_br/usekit",
-  "version": "0.0.0-development",
+  "name": "usekit",
+  "version": "3.0.0",
+  "private": true,
   "sideEffects": false,
   "description": "Validators, formatters and other value objects for brazillians",
   "scripts": {
-    "pretest": "yarn build",
-    "test": "nyc ava",
-    "test:watch": "ava --watch",
-    "build": "bili",
-    "semantic-release": "HUSKY_SKIP_HOOKS=1 semantic-release"
+    "test": "jest",
+    "lint": "eslint packages --ext ts,tsx",
+    "prebuild": "lerna exec --parallel -- rimraf dist typings",
+    "build": "lerna exec --parallel -- rollup -c ../../rollup.config.js",
+    "release": "lerna --version --conventional-comits --yes",
+    "release:diff": "lerna diff",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
-  "publishConfig": {
-    "access": "public"
-  },
-  "files": [
-    "dist/",
-    "types/"
+  "workspaces": [
+    "packages/*"
   ],
-  "author": {
-    "name": "Highlander Paiva",
-    "url": "https://hvpaiva.github.io/"
-  },
-  "keywords": [
-    "validators",
-    "brazilian",
-    "formatters",
-    "RG",
-    "CPF",
-    "CNPJ",
-    "INSS",
-    "real",
-    "BRL"
-  ],
-  "husky": {
-    "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && node_modules/.bin/git-cz --hook || true",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "license": "MIT",
-  "main": "dist/usekit.js",
-  "types": "types/usekit.d.ts",
-  "module": "dist/usekit.esm.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/usemobile/usekit.git"
-  },
-  "bugs": {
-    "url": "https://github.com/usemobile/usekit/issues"
-  },
-  "homepage": "https://github.com/usemobile/usekit#readme",
   "devDependencies": {
+    "@babel/core": "^7.9.0",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@semantic-release/changelog": "^5.0.1",
-    "@semantic-release/commit-analyzer": "^8.0.1",
-    "@semantic-release/git": "^9.0.0",
-    "@semantic-release/npm": "^7.0.5",
-    "@semantic-release/release-notes-generator": "^9.0.1",
-    "ava": "^3.6.0",
-    "bili": "^4.9.0",
+    "@types/jest": "^25.2.1",
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/parser": "^2.27.0",
+    "@usemobile_br/uniform": "^2.6.0",
     "commitizen": "^4.0.4",
+    "coveralls": "^3.0.11",
     "cz-conventional-changelog": "3.1.0",
     "cz-conventional-changelog-emoji": "^0.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-import-helpers": "^1.0.2",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-prettier": "^3.1.2",
     "husky": "^4.2.3",
-    "minimist": "^1.2.5",
-    "nyc": "^15.0.1",
+    "jest": "^25.3.0",
+    "lerna": "^3.20.2",
+    "lint-staged": "^10.1.2",
+    "prettier": "^2.0.4",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.3.4",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^5.3.0",
     "rollup-plugin-typescript2": "^0.27.0",
-    "semantic-release": "^17.0.4",
+    "rollup-plugin-url": "^3.0.1",
     "serialize-javascript": "3.0.0",
+    "ts-jest": "^25.3.1",
     "ts-node": "^8.8.2",
     "typescript": "^3.8.3"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog-emoji"
-    }
-  },
-  "dependencies": {
-    "acorn": "^7.1.1",
-    "class-validator": "^0.11.1"
   }
 }

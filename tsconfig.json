@@ -1,28 +1,28 @@
 {
   "compilerOptions": {
+    "noEmit": true,
+    "module": "esnext",
     "target": "es5",
-    "lib": ["es2015", "dom"],
-
-    // Module configuration
-    "moduleResolution": "node",
-
-    // Declaration configuration
+    "lib": ["es6", "es2016", "es2017"],
+    "sourceMap": true,
+    "allowJs": false,
     "declaration": true,
-    "declarationDir": "types/",
-
-    // Type-check configuration
-    "alwaysStrict": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "noImplicitReturns": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "strictPropertyInitialization": true,
+    "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "paths": {
+      "@usekit/*": ["packages/*/lib"]
+    }
   },
-  "files": [
-    "src/usekit.ts"
-  ]
+  "exclude": ["node_modules", "packages/**/__tests__"]
 }

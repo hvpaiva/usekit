@@ -1,0 +1,49 @@
+{
+  "name": "@usekit/decorators",
+  "version": "3.0.0",
+  "description": "Decorators with validators, formatters and other value objects for brazillians",
+  "author": {
+    "name": "Highlander Paiva",
+    "url": "https://hvpaiva.github.io/"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "validators",
+    "brazilian",
+    "formatters",
+    "RG",
+    "CPF",
+    "CNPJ",
+    "INSS",
+    "real",
+    "BRL"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "typings/web/lib/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist",
+    "typings"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/usemobile/usekit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/usemobile/usekit/issues"
+  },
+  "homepage": "https://github.com/usemobile/usekit#readme",
+  "peerDependencies": {
+    "@usekit/core": "*"
+  },
+  "dependencies": {
+    "class-validator": "^0.11.1"
+  }
+}
