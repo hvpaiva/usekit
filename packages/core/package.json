@@ -6,7 +6,6 @@
     "name": "Highlander Paiva",
     "url": "https://hvpaiva.github.io/"
   },
-  "private": false,
   "scripts": {
     "test": "jest"
   },

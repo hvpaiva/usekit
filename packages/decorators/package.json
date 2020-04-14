@@ -9,7 +9,6 @@
   "scripts": {
     "test": "jest"
   },
-  "private": false,
   "keywords": [
     "validators",
     "brazilian",
