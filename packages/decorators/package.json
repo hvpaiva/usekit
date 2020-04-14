@@ -9,6 +9,7 @@
   "scripts": {
     "test": "jest"
   },
+  "private": false,
   "keywords": [
     "validators",
     "brazilian",
@@ -45,5 +46,6 @@
   },
   "dependencies": {
     "class-validator": "^0.11.1"
-  }
+  },
+  "gitHead": "bc37f0d5ec94431a6aab96ef2c03e79ce601d6df"
 }

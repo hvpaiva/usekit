@@ -6,6 +6,7 @@
     "name": "Highlander Paiva",
     "url": "https://hvpaiva.github.io/"
   },
+  "private": false,
   "scripts": {
     "test": "jest"
   },
@@ -45,5 +46,6 @@
   },
   "dependencies": {
     "class-validator": "^0.11.1"
-  }
+  },
+  "gitHead": "bc37f0d5ec94431a6aab96ef2c03e79ce601d6df"
 }
