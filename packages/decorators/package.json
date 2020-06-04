@@ -1,6 +1,6 @@
 {
   "name": "@braziliankit/decorators",
-  "version": "3.0.0",
+  "version": "3.0.2",
   "description": "Decorators with validators, formatters and other value objects for brazillians",
   "author": {
     "name": "Highlander Paiva",
@@ -46,5 +46,5 @@
   "dependencies": {
     "class-validator": "^0.11.1"
   },
-  "gitHead": "aa225fb7ac355ce2d9b7d2f991662f1fa3c93ad8"
+  "gitHead": "958477d4f438c5f828d85ef8a23afcd201adf206"
 }
