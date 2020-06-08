@@ -1,51 +1,14 @@
-import {
-  ValidatorConstraint,
-  ValidatorConstraintInterface,
-  ValidationArguments,
-} from 'class-validator';
-
 import { InssFormatter } from '../formatters';
 import { Validator } from './base.validator';
 
 /**
  * The INSS validator.
  */
-@ValidatorConstraint({ name: 'inss', async: false })
-class InssValidator implements Validator, ValidatorConstraintInterface {
+class InssValidator implements Validator {
   private inssFormatter: InssFormatter;
 
   constructor() {
     this.inssFormatter = new InssFormatter();
-  }
-
-  /**
-   * Check if value is a valid INSS.
-   * @example ```js
-   * InssValidator.validate('11.111.11111/11');
-   * //=> true
-   *
-   * InssValidator.validate('111111111111');
-   * //=> true
-   *
-   * InssValidator.validate('11.111.11111');
-   * //=> false
-   *
-   * InssValidator.validate('11111');
-   * //=> false
-   * ```
-   * @param value A `string` with INSS numbers. Can be formatted or unformatted.
-   * @param _validationArguments The <ValidationArguments> object
-   */
-  validate(value: any, _validationArguments?: ValidationArguments): boolean {
-    return this.isValid(value);
-  }
-
-  /**
-   * The default validation error message
-   * @param _args Validation arguments
-   */
-  defaultMessage(_args: ValidationArguments): string {
-    return 'The ($property) property with ($value) value is invalid!';
   }
 
   /**
@@ -64,7 +27,6 @@ class InssValidator implements Validator, ValidatorConstraintInterface {
    * //=> false
    * ```
    * @param value A `string` with INSS numbers. Can be formatted or unformatted.
-   * @deprecated Use 'validate' instead.
    */
   isValid(value: string) {
     return this.inssFormatter.isFormattable(value);

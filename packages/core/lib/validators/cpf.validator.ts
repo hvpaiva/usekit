@@ -1,9 +1,3 @@
-import {
-  ValidatorConstraint,
-  ValidatorConstraintInterface,
-  ValidationArguments,
-} from 'class-validator';
-
 import { CpfFormatter } from '../formatters';
 import Utils from '../utils';
 import { Validator } from './base.validator';
@@ -11,8 +5,7 @@ import { Validator } from './base.validator';
 /**
  * The CPF validator.
  */
-@ValidatorConstraint({ name: 'cpf', async: false })
-class CpfValidator implements Validator, ValidatorConstraintInterface {
+class CpfValidator implements Validator {
   /**
    * Validator array for CPF.
    */
@@ -41,39 +34,6 @@ class CpfValidator implements Validator, ValidatorConstraintInterface {
   /**
    * Check if value is a valid CPF.
    * @example ```js
-   * CpfValidator.validate('366.418.768-70');
-   * //=> true
-   *
-   * CpfValidator.validate('36641876870');
-   * //=> true
-   *
-   * CpfValidator.validate('213.198.013-20');
-   * //=> false
-   *
-   * CpfValidator.validate('2131201872781');
-   * //=> false
-   *
-   * CpfValidator.validate('11111111111');
-   * //=> false
-   * ```
-   * @param value A `string` with CPF numbers. Can be formatted or unformatted.
-   * @param _validationArguments The <ValidationArguments> object
-   */
-  validate(value: any, _validationArguments?: ValidationArguments): boolean {
-    return this.isValid(value);
-  }
-
-  /**
-   * The default validation error message
-   * @param _args Validation arguments
-   */
-  defaultMessage(_args: ValidationArguments): string {
-    return 'The ($property) property with ($value) value is invalid!';
-  }
-
-  /**
-   * Check if value is a valid CPF.
-   * @example ```js
    * CpfValidator.isValid('366.418.768-70');
    * //=> true
    *
@@ -90,7 +50,6 @@ class CpfValidator implements Validator, ValidatorConstraintInterface {
    * //=> false
    * ```
    * @param value A `string` with CPF numbers. Can be formatted or unformatted.
-   * @deprecated Use 'validate' instead.
    */
   isValid(value: string) {
     if (!this.cpfFormatter.isFormattable(value)) return false;

@@ -46,8 +46,5 @@
   "peerDependencies": {
     "@braziliankit/core": "*"
   },
-  "dependencies": {
-    "class-validator": "^0.11.1"
-  },
   "gitHead": "a0fe05142fe330c320b3604a17347827202232d8"
 }

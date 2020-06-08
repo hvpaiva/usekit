@@ -1,9 +1,3 @@
-import {
-  ValidatorConstraint,
-  ValidatorConstraintInterface,
-  ValidationArguments,
-} from 'class-validator';
-
 import { CnpjFormatter } from '../formatters';
 import Utils from '../utils';
 import { Validator } from './base.validator';
@@ -11,8 +5,7 @@ import { Validator } from './base.validator';
 /**
  * The CNPJ validator.
  */
-@ValidatorConstraint({ name: 'cnpj', async: false })
-class CnpjValidator implements Validator, ValidatorConstraintInterface {
+class CnpjValidator implements Validator {
   /**
    * Validator array for CNPJ.
    */
@@ -44,39 +37,6 @@ class CnpjValidator implements Validator, ValidatorConstraintInterface {
   /**
    * Check if value is a valid CNPJ.
    * @example ```js
-   * CnpjValidator.validate('366.418.768-70');
-   * //=> true
-   *
-   * CnpjValidator.validate('36641876870');
-   * //=> true
-   *
-   * CnpjValidator.validate('213.198.013-20');
-   * //=> false
-   *
-   * CnpjValidator.validate('2131201872781');
-   * //=> false
-   *
-   * CnpjValidator.validate('11111111111');
-   * //=> false
-   * ```
-   * @param value A `string` with CNPJ numbers. Can be formatted or unformatted.
-   * @param _validationArguments The <ValidationArguments> object
-   */
-  validate(value: any, _validationArguments?: ValidationArguments): boolean {
-    return this.isValid(value);
-  }
-
-  /**
-   * The default validation error message
-   * @param _args Validation arguments
-   */
-  defaultMessage(_args: ValidationArguments): string {
-    return 'The ($property) property with ($value) value is invalid!';
-  }
-
-  /**
-   * Check if value is a valid CNPJ.
-   * @example ```js
    * CnpjValidator.isValid('13.313.846/0001-23');
    * //=> true
    *
@@ -93,7 +53,6 @@ class CnpjValidator implements Validator, ValidatorConstraintInterface {
    * //=> false
    * ```
    * @param value A `string` with CNPJ numbers. Can be formatted or unformatted.
-   * @deprecated Use 'validate' instead.
    */
   isValid(value: string) {
     if (!this.cnpjFormatter.isFormattable(value)) return false;
