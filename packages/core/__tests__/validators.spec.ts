@@ -31,30 +31,30 @@ const INVALID_FORMAT_INSS = '0000';
 
 describe('test validators', () => {
   it('should validate an CPF', () => {
-    expect(cpfValidator.validate(VALID_UNFORMATTED_CPF)).toBe(true);
-    expect(cpfValidator.validate(VALID_FORMATTED_CPF)).toBe(true);
-    expect(cpfValidator.validate(INVALID_FORMAT_CPF)).toBe(false);
-    expect(cpfValidator.validate(INVALID_FORMATTED_CPF)).toBe(false);
-    expect(cpfValidator.validate(INVALID_UNFORMATTED_CPF)).toBe(false);
+    expect(cpfValidator.isValid(VALID_UNFORMATTED_CPF)).toBe(true);
+    expect(cpfValidator.isValid(VALID_FORMATTED_CPF)).toBe(true);
+    expect(cpfValidator.isValid(INVALID_FORMAT_CPF)).toBe(false);
+    expect(cpfValidator.isValid(INVALID_FORMATTED_CPF)).toBe(false);
+    expect(cpfValidator.isValid(INVALID_UNFORMATTED_CPF)).toBe(false);
   });
 
   it('should validate an CNPJ', () => {
-    expect(cnpjValidator.validate(VALID_UNFORMATTED_CNPJ)).toBe(true);
-    expect(cnpjValidator.validate(VALID_FORMATTED_CNPJ)).toBe(true);
-    expect(cnpjValidator.validate(INVALID_FORMAT_CNPJ)).toBe(false);
-    expect(cnpjValidator.validate(INVALID_FORMATTED_CNPJ)).toBe(false);
-    expect(cnpjValidator.validate(INVALID_UNFORMATTED_CNPJ)).toBe(false);
+    expect(cnpjValidator.isValid(VALID_UNFORMATTED_CNPJ)).toBe(true);
+    expect(cnpjValidator.isValid(VALID_FORMATTED_CNPJ)).toBe(true);
+    expect(cnpjValidator.isValid(INVALID_FORMAT_CNPJ)).toBe(false);
+    expect(cnpjValidator.isValid(INVALID_FORMATTED_CNPJ)).toBe(false);
+    expect(cnpjValidator.isValid(INVALID_UNFORMATTED_CNPJ)).toBe(false);
   });
 
   it('should validate an CEP', () => {
-    expect(cepValidator.validate(VALID_UNFORMATTED_CEP)).toBe(true);
-    expect(cepValidator.validate(VALID_FORMATTED_CEP)).toBe(true);
-    expect(cepValidator.validate(INVALID_FORMAT_CEP)).toBe(false);
+    expect(cepValidator.isValid(VALID_UNFORMATTED_CEP)).toBe(true);
+    expect(cepValidator.isValid(VALID_FORMATTED_CEP)).toBe(true);
+    expect(cepValidator.isValid(INVALID_FORMAT_CEP)).toBe(false);
   });
 
   it('should validate an INSS', () => {
-    expect(inssValidator.validate(VALID_UNFORMATTED_INSS)).toBe(true);
-    expect(inssValidator.validate(VALID_FORMATTED_INSS)).toBe(true);
-    expect(inssValidator.validate(INVALID_FORMAT_INSS)).toBe(false);
+    expect(inssValidator.isValid(VALID_UNFORMATTED_INSS)).toBe(true);
+    expect(inssValidator.isValid(VALID_FORMATTED_INSS)).toBe(true);
+    expect(inssValidator.isValid(INVALID_FORMAT_INSS)).toBe(false);
   });
 });
