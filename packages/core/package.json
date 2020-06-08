@@ -1,6 +1,6 @@
 {
   "name": "@braziliankit/core",
-  "version": "3.0.2",
+  "version": "4.0.0",
   "description": "Validators, formatters and other value objects for brazilians",
   "publishConfig": {
     "access": "public"
